@@ -1,0 +1,54 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+
+<!-- Creates a layout with a left and right sidenav and implicit content. -->
+<mat-sidenav-container>
+  <mat-sidenav [(opened)]="opened" mode="side">
+    <mat-list>
+      <mat-list-item ><a class="switchTab" href = "Players" style="color:white; text-decoration: none;">Jucători</a><mat-divider style="background-color:white;"></mat-divider></mat-list-item>
+      <mat-list-item> <a class="switchTab" href = "Teams"  style="color:white; text-decoration: none;">Echipe</a></mat-list-item>
+    </mat-list>
+     
+  </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        <span>
+          <a  style="margin-left: 3%; color:white; text-decoration: none;" (click)="opened=!opened" href = "javascript:void(0)" role = "button">Sport Lovers</a>
+        </span>
+
+        <span class="example-spacer"></span>
+        <ng-container *ngIf="authService.currentUser$ | async as user; else loginButton">
+          <mat-icon>account_circle</mat-icon>
+          <button mat-raised-button color="accent">
+            <mat-icon (click)="logout()">logout</mat-icon>
+            Deconectare
+          </button>
+        </ng-container>
+
+        <ng-template #loginButton>
+          <button mat-button routerLink="login">
+            <mat-icon>login</mat-icon>
+            Autentificare
+          </button>
+        </ng-template>
+    </mat-toolbar>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+<!--<h1>Angular Router App</h1>-->
+
+<!-- The routed views render in the <router-outlet>-->
+
+

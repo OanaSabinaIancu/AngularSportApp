@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>{{act}} echipă</h1>
+
+<div mat-dialog-content>
+    
+  <form [formGroup]="teamForm">
+    <mat-form-field appearance="outline" style = "padding:1.5%;">
+        <mat-label>Denumire echipă</mat-label>
+        <input formControlName="DENUMIRE" matInput placeholder="Denumire">
+    </mat-form-field>
+  </form>
+
+</div>
+
+<div mat-dialog-action style = "padding:1.5%;">
+    <button mat-raised-button color="accent" mat-dialog-close >Renunţă</button>
+    <button style="margin-left: 10px;" mat-raised-button color="primary" (click)="createPosts(teamForm.value)">{{action}}</button>
+</div>

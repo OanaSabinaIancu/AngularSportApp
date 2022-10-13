@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>{{act}} date jucător</h1>
+
+<div mat-dialog-content>
+    
+  <form [formGroup]="playerForm">
+    <mat-form-field appearance="outline" style = "padding:1.5%;">
+        <mat-label>Nume jucător</mat-label>
+        <input formControlName="PRENUME" matInput placeholder="Prenume">
+      </mat-form-field>
+    
+      <mat-form-field appearance="outline" style = "padding:1.5%;">
+        <mat-label>Prenume jucător</mat-label>
+        <input formControlName="NUME" matInput placeholder="Nume">
+      </mat-form-field>
+    
+      <mat-form-field appearance="outline" style = "padding:1.5%;">
+        <mat-label>Alege data naşterii jucătorului</mat-label>
+        <input formControlName="DATA_NASTERE" matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      
+      <mat-select formControlName="ID_ECHIPA" placeholder="Id Echipa" style = "padding:1.5%;">
+        <mat-option *ngFor="let post of posts" [value]="post.ID_ECHIPA">1</mat-option>
+        <mat-option  [value]="2">2</mat-option>
+        <mat-option  [value]="1">{{this.data}}</mat-option>
+        <mat-option *ngFor="let element of data" [value]="element.ID_ECHIPA">{{element.ID_ECHIPA}}</mat-option>
+        
+      </mat-select>
+  </form>
+
+</div>
+
+<div mat-dialog-action style = "padding:1.5%;">
+    <button mat-raised-button color="accent" mat-dialog-close >Renunţă</button>
+    <button style="margin-left: 10px;" mat-raised-button color="primary" (click)="createPosts(playerForm.value)">{{action}}</button>
+</div>
+
+

@@ -1,0 +1,19 @@
+.content{
+    padding: 3%;
+}
+
+
+mat-sidenav-container{
+    height: 100%;
+}
+
+mat-sidenav{
+    background-color: rgb(68, 68, 169);
+    width:200px;
+    color:white;
+    
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}

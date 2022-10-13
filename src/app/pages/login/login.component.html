@@ -1,0 +1,26 @@
+
+<div class="form-container mat-elevation-z5">
+  <h1 class="text-center">Autentificare</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="submit()">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <input matInput placeholder="Email" formControlName="email">
+      <mat-error *ngIf="email?.errors?.['required']">
+        Adresa de email trebuie să aibă formatul <strong>corect</strong>
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width" appearance="fill">
+      <input matInput placeholder="Parolă" formControlName="password" type="password">
+      <mat-error *ngIf="password?.errors?.['required']">
+        Parola este <strong>obligatorie</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <span class="center margin-top"><a href="register">Doreşti să îţi creezi un cont?</a></span>
+
+    <div class="center margin-top">
+      <button mat-raised-button color="accent" type="submit" >Autentificare</button>
+    </div>
+    
+  </form>
+</div>
